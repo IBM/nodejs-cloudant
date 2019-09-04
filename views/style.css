@@ -1,0 +1,25 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  margin-left: 20px;
+  margin-bottom: 70px;
+}
+
+#name {
+  font-size: large;
+  color: #5f5c5c;
+  width: 300px;
+  margin: auto;
+}
+
+input {
+  font-size: large;
+  color: #858383;
+  height: 2rem;
+  border-style: solid;
+  border-radius: 6px;
+  border-color: #d4d2d2;
+  text-indent: 10px;
+}
