@@ -2,9 +2,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-h1 {
-  margin-left: 20px;
-  margin-bottom: 70px;
+#logo {
+  height: 6rem;
 }
 
 #name {
