@@ -33,6 +33,16 @@
       }
     },
     {
+      "apiVersion": "ibmcloud.ibm.com/v1alpha1",
+      "kind": "Binding",
+      "metadata": {
+        "name": "binding-cloudant"
+      },
+      "spec": {
+        "serviceName": "${NAME}"
+      }
+    },
+    {
       "kind": "Service",
       "apiVersion": "v1",
       "metadata": {
