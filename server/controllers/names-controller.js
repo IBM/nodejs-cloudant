@@ -1,17 +1,9 @@
 // import dependencies
-const cfenv = require("cfenv");
+const IBMCloudEnv = require('ibm-cloud-env');
 
-// get Cloudant environment variables - try Cloud first and then try local
-let cloudantURL;
-if (cfenv.getAppEnv({}).services['cloudantNoSQLDB']) {
-  cloudantURL = cfenv.getAppEnv({}).services['cloudantNoSQLDB'][0].credentials.url;
-} else {
-  vcapLocal = require('../vcap-local.json');
-  cloudantURL = cfenv.getAppEnv({ vcap: vcapLocal }).services['cloudantNoSQLDB'][0].credentials.url;
-}
 // initialize Cloudant
-const Cloudant = require('@cloudant/cloudant');
-const cloudant = Cloudant({ url: cloudantURL, plugins: 'promises' });
+const CloudantSDK = require('@cloudant/cloudant');
+const cloudant = new CloudantSDK(IBMCloudEnv.getString('cloudant_url'));
 
 // create mydb database if it does not already exist
 cloudant.db.create('mydb')

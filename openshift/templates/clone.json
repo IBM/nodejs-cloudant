@@ -103,7 +103,7 @@
           "type": "Git",
           "git": {
             "uri": "https://github.com/IBM/clone.git",
-            "ref": "master"
+            "ref": "reed"
           }
         },
         "strategy": {
