@@ -77,24 +77,6 @@
             "image": "${NAME}",
             "env": [
               {
-                "name": "CLOUDANT_APIKEY",
-                "valueFrom": {
-                  "secretKeyRef": {
-                    "name": "${NAME}",
-                    "key": "apikey"
-                  }
-                }
-              },
-              {
-                "name": "CLOUDANT_HOST",
-                "valueFrom": {
-                  "secretKeyRef": {
-                    "name": "${NAME}",
-                    "key": "host"
-                  }
-                }
-              },
-              {
                 "name": "CLOUDANT_URL",
                 "valueFrom": {
                   "secretKeyRef": {
