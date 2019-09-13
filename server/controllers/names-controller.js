@@ -2,6 +2,8 @@
 const IBMCloudEnv = require('ibm-cloud-env');
 IBMCloudEnv.init('/server/config/mappings.json');
 
+coneole.log("Cloudant URL: " + process.env.CLOUDANT_URL);
+
 // initialize Cloudant
 const CloudantSDK = require('@cloudant/cloudant');
 const cloudant = new CloudantSDK(IBMCloudEnv.getString('cloudant_url'));
