@@ -11,10 +11,10 @@
     "devserver": "nodemon server/server.js"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1",
     "chai": "^4.2.0",
     "mocha": "^6.0.0",
-    "nyc": "^13.3.0"
+    "nodemon": "^1.19.1",
+    "nyc": "^14.1.1"
   },
   "dependencies": {
     "@cloudant/cloudant": "^4.1.1",
