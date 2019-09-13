@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage {
-    echo "Usage: ./oc-template-install.sh <api_key> <resource_group_id> <cluster_name> <template-file>"
+    echo "Usage: ./oc-template-install.sh <api_key> <resource_group_id> <cluster_name>"
 }
 
 function check_input {
@@ -26,7 +26,7 @@ function check_exit_custom {
 API_KEY=$1
 RESOURCE_GROUP=$2
 CLUSTER_NAME=$3
-TEMPLATE_FILE=$4
+TEMPLATE_FILE=./../clone.yml
 
 check_input "$API_KEY" "No API key was supplied. A valid IBM Cloud API key is required to login to the IBM Cloud."
 check_input "$RESOURCE_GROUP" "No resource group ID was supplied. Execute 'ibmcloud resource groups' to list resource groups."
