@@ -70,7 +70,6 @@
         "name": "${NAME}"
       },
       "spec": {
-        "host": "",
         "to": {
           "kind": "Service",
           "name": "${NAME}"
@@ -110,7 +109,7 @@
           "sourceStrategy": {
             "from": {
               "kind": "ImageStreamTag",
-              "namespace": "${NAMESPACE}",
+              "namespace": "openshift",
               "name": "nodejs:${NODEJS_VERSION}"
             },
             "env": [
@@ -236,13 +235,6 @@
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
       "value": "nodejs-ibm-cloudant"
-    },
-    {
-      "name": "NAMESPACE",
-      "displayName": "Namespace",
-      "description": "The OpenShift Namespace where the ImageStream resides.",
-      "required": true,
-      "value": "openshift"
     },
     {
       "name": "NODEJS_VERSION",
