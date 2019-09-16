@@ -36,7 +36,7 @@
       "apiVersion": "ibmcloud.ibm.com/v1alpha1",
       "kind": "Binding",
       "metadata": {
-        "name": "${NAME}"
+        "name": "${NAME}",
       },
       "spec": {
         "serviceName": "${NAME}"
@@ -62,33 +62,6 @@
         "selector": {
           "name": "${NAME}"
         }
-      }
-    },
-    {
-      "apiVersion": "v1",
-      "kind": "Pod",
-      "metadata": {
-        "name": "${NAME}"
-      },
-      "spec": {
-        "containers": [
-          {
-            "name": "${NAME}",
-            "image": "${NAME}",
-            "env": [
-              {
-                "name": "CLOUDANT_URL",
-                "valueFrom": {
-                  "secretKeyRef": {
-                    "name": "${NAME}",
-                    "key": "url"
-                  }
-                }
-              }
-            ]
-          }
-        ],
-        "restartPolicy": "Never"
       }
     },
     {
@@ -218,6 +191,17 @@
                     "containerPort": 3000
                   }
                 ],
+                "env": [
+                  {
+                    "name": "CLOUDANT_URL", 
+                    "valueFrom": {
+                      "secretKeyRef" : {
+                        "name" : "${NAME}",
+                        "key" : "url"
+                      }
+                    }
+                  }
+                ],
                 "readinessProbe": {
                   "timeoutSeconds": 3,
                   "initialDelaySeconds": 3,
@@ -238,8 +222,7 @@
                   "limits": {
                     "memory": "${MEMORY_LIMIT}"
                   }
-                },
-                "env": []
+                }
               }
             ]
           }
