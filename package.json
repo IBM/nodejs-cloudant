@@ -1,7 +1,7 @@
 {
-  "name": "ibm-clone-app",
+  "name": "ibm-nodejs-cloudant-app",
   "version": "1.0.0",
-  "description": "cloudant + node.js + express",
+  "description": "node.js + express + cloudant",
   "config": {
     "entrypoint": "server/server.js"
   },
