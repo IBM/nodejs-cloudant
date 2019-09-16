@@ -238,7 +238,7 @@
     },
     {
       "name": "PLAN",
-      "displayName": "IBM Cloudant Plan Type",
+      "displayName": "Cloudant Plan",
       "description": "Enter 'lite' or 'standard' to select the IBM Cloudant plan type.",
       "required": true,
       "value": "lite"
