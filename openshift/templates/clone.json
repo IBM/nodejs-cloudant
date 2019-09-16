@@ -5,7 +5,7 @@
     "name": "nodejs-ibm-cloudant",
     "annotations": {
       "openshift.io/display-name": "Node.js + IBM Cloudant",
-      "description": "An example Node.js application with an IBM Cloudant database. For more information about using this template, including OpenShift considerations, see https://github.com/IBM/clone/blob/master/readme.md.",
+      "description": "An example Node.js application with an IBM Cloudant database. For more information about using this template, including OpenShift considerations, see https://github.com/IBM/nodejs-cloudant/blob/master/readme.md",
       "tags": "quickstart,nodejs,ibm",
       "iconClass": "icon-nodejs",
       "openshift.io/long-description": "REPLAC ME",
