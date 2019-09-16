@@ -1,7 +1,8 @@
 #!/bin/bash
 
 function usage {
-    echo "Usage: ./oc-template-install.sh <api_key> <resource_group_id> <cluster_name>"
+    echo "Usage: ./oc-template-install.sh <api_key> <resource_group_id> <cluster_name> [template_file]"
+    echo "Defaults to the template file located in /openshift/templates."
 }
 
 function check_input {
@@ -26,14 +27,19 @@ function check_exit_custom {
 API_KEY=$1
 RESOURCE_GROUP=$2
 CLUSTER_NAME=$3
-TEMPLATE_FILE=./../clone.yml
+if [[ -z "$4" ]]; then
+    TEMPLATE_FILE=./../templates/clone.json
+else
+    TEMPLATE_FILE=$4
+fi
+echo "Using template file $TEMPLATE_FILE"
 
 check_input "$API_KEY" "No API key was supplied. A valid IBM Cloud API key is required to login to the IBM Cloud."
 check_input "$RESOURCE_GROUP" "No resource group ID was supplied. Execute 'ibmcloud resource groups' to list resource groups."
 check_input "$CLUSTER_NAME" "No cluster name was supplied. Execute 'ibmcloud ks clusters' to list available clusters."
 check_input "$TEMPLATE_FILE" "No template file was supplied."
 
-echo "Logging in"
+echo -e "\nLogging in"
 ibmcloud login --apikey $API_KEY
 ibmcloud target --cf -g $RESOURCE_GROUP
 oc login -u apikey -p $API_KEY
