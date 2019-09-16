@@ -2,23 +2,22 @@
   "kind": "Template",
   "apiVersion": "v1",
   "metadata": {
-    "name": "nodejs-ibm-cloudant-test",
+    "name": "nodejs-ibm-cloudant",
     "annotations": {
       "openshift.io/display-name": "Node.js + IBM Cloudant",
       "description": "An example Node.js application with an IBM Cloudant database. For more information about using this template, including OpenShift considerations, see https://github.com/IBM/clone/blob/master/readme.md.",
-      "tags": "quickstart,nodejs",
+      "tags": "quickstart,nodejs,ibm",
       "iconClass": "icon-nodejs",
-      "openshift.io/long-description": "long description",
-      "openshift.io/provider-display-name": "provider display name",
+      "openshift.io/long-description": "REPLAC ME",
+      "openshift.io/provider-display-name": "IBM, Inc.",
       "openshift.io/documentation-url": "https://github.com/IBM/clone/blob/master/readme.md",
-      "openshift.io/support-url": "support.url",
-      "template.openshift.io/bindable": "false"
+      "openshift.io/support-url": "REPLAC ME"
     }
   },
   "message": "message",
   "labels": {
-    "template": "nodejs-ibm-cloudant-test",
-    "app": "nodejs-ibm-cloudant-test"
+    "template": "nodejs-ibm-cloudant",
+    "app": "nodejs-ibm-cloudant"
   },
   "objects": [
     {
@@ -28,7 +27,7 @@
         "name": "${NAME}"
       },
       "spec": {
-        "plan": "lite",
+        "plan": "standard",
         "serviceClass": "cloudantnosqldb"
       }
     },
@@ -71,7 +70,7 @@
         "name": "${NAME}"
       },
       "spec": {
-        "host": "${APPLICATION_DOMAIN}",
+        "host": "",
         "to": {
           "kind": "Service",
           "name": "${NAME}"
@@ -236,7 +235,7 @@
       "displayName": "Name",
       "description": "The name assigned to all of the frontend objects defined in this template.",
       "required": true,
-      "value": "nodejs-ibm-cloudant-test"
+      "value": "nodejs-ibm-cloudant"
     },
     {
       "name": "NAMESPACE",
@@ -258,12 +257,6 @@
       "description": "Maximum amount of memory the container can use.",
       "required": true,
       "value": "512Mi"
-    },
-    {
-      "name": "APPLICATION_DOMAIN",
-      "displayName": "Application Hostname",
-      "description": "The exposed hostname that will route to the Node.js service, if left blank a value will be defaulted.",
-      "value": ""
     },
     {
       "name": "NPM_MIRROR",
