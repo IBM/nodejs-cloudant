@@ -4,6 +4,11 @@ body {
 
 #logo {
   height: 6rem;
+
+}
+
+.logo-center {
+  text-align: center;
 }
 
 #name {
