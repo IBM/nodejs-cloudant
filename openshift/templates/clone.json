@@ -100,7 +100,7 @@
         "source": {
           "type": "Git",
           "git": {
-            "uri": "https://github.com/IBM/clone.git",
+            "uri": "https://github.com/IBM/nodejs-cloudant.git",
             "ref": "reed"
           }
         },
