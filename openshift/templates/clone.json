@@ -8,7 +8,7 @@
       "description": "An example Node.js application with an IBM Cloudant database. For more information about using this template, including OpenShift considerations, see https://github.com/IBM/nodejs-cloudant/blob/master/readme.md",
       "tags": "quickstart,nodejs,ibm",
       "iconClass": "icon-nodejs",
-      "openshift.io/long-description": "REPLAC ME",
+      "openshift.io/long-description": "",
       "openshift.io/provider-display-name": "IBM, Inc.",
       "openshift.io/documentation-url": "https://github.com/IBM/nodejs-cloudant/blob/master/readme.md",
       "openshift.io/support-url": "https://www.ibm.com/cloud/support"
