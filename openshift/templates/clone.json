@@ -11,13 +11,12 @@
       "openshift.io/long-description": "long description",
       "openshift.io/provider-display-name": "provider display name",
       "openshift.io/documentation-url": "https://github.com/IBM/clone/blob/master/readme.md",
-      "openshift.io/support-url": "support.url",
-      "template.openshift.io/bindable": "false"
+      "openshift.io/support-url": "support.url"
     }
   },
   "message": "message",
   "labels": {
-    "template": "nodejs-ibm-cloudant-test",
+    "template": "nodejs-ibm-cloudant",
     "app": "nodejs-ibm-cloudant-test"
   },
   "objects": [
@@ -28,7 +27,7 @@
         "name": "${NAME}"
       },
       "spec": {
-        "plan": "lite",
+        "plan": "standard",
         "serviceClass": "cloudantnosqldb"
       }
     },
