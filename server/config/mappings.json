@@ -5,6 +5,7 @@
       "cloudfoundry:$['cloudantNoSQLDB'][0].credentials.url",
       "env:service_cloudant:$.url",
       "env:cloudant_url",
+      "env:CLOUDANT_URL",
       "file:/server/config/localdev-config.json:$.cloudant_url"
     ]
   }
