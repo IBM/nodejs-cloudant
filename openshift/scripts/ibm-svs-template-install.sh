@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage {
-    echo "Usage: ./oc-template-install.sh <api_key> <resource_group_id> <cluster_name> [template_file]"
+    echo "Usage: ./ibm-svs-template-install.sh --apikey=<api_key> --resource-group-id=<resource_group_id> --cluster-name=<cluster_name> [--template-file=template_file]"
     echo "Defaults to the template file located in /openshift/templates."
 }
 
@@ -24,13 +24,32 @@ function check_exit_custom {
     fi
 }
 
-API_KEY=$1
-RESOURCE_GROUP=$2
-CLUSTER_NAME=$3
-if [[ -z "$4" ]]; then
+for arg in "$@"
+do
+    if [ "$arg" == "--help" ] || [ "$arg" == "-h" ]; then
+        usage
+        exit 0
+    fi
+
+    if [[ $arg == --apikey=* ]]; then
+        API_KEY=$( echo $arg | cut -d'=' -f 2 )
+    fi
+
+    if [[ $arg == --resource-group-id=* ]]; then
+        RESOURCE_GROUP=$( echo $arg | cut -d'=' -f 2 )
+    fi
+
+    if [[ $arg == --cluster-name=* ]]; then
+        CLUSTER_NAME=$( echo $arg | cut -d'=' -f 2 )
+    fi
+
+    if [[ $arg == --template-file=* ]]; then
+        TEMPLATE_FILE=$( echo $arg | cut -d'=' -f 2 )
+    fi
+done
+
+if [[ -z "$TEMPLATE_FILE" ]]; then
     TEMPLATE_FILE=./../templates/clone.json
-else
-    TEMPLATE_FILE=$4
 fi
 echo "Using template file $TEMPLATE_FILE"
 
