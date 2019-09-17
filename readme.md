@@ -14,7 +14,7 @@
 </p>
 
 
-# Create and deploy a CLONE Node.js application
+# Create and deploy a Node.js + Cloudant application
 
 In this sample application, you will create a basic web application using Express to serve web pages in Node.js integrated complete with standard best practices, including a health check and application metric monitoring. In addition, this sample includes integration with Cloudant, a fully managed JSON document database.
 
