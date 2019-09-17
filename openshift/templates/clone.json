@@ -8,7 +8,7 @@
       "description": "Create example Node.js application or provide your own app, with an IBM Cloudant database instance and binding.",
       "tags": "quickstart,nodejs,ibm,cloudant",
       "iconClass": "icon-nodejs",
-      "openshift.io/long-description": " <PROVIDE DETAILED DESC of sample application > For more information about using this template, including OpenShift considerations, see https://github.com/IBM/nodejs-cloudant/blob/master/readme.md",
+      "openshift.io/long-description": "The example application at https://github.com/IBM/nodejs-cloudant uses an IBM Cloudant databse to store a list of names and display the database entries in real-time. For imformation about IBM Cloudant see https://www.ibm.com/cloud/cloudant. For more information about using this template, including OpenShift considerations, see https://github.com/IBM/nodejs-cloudant/blob/master/readme.md",
       "openshift.io/provider-display-name": "IBM, Inc.",
       "openshift.io/documentation-url": "https://github.com/IBM/nodejs-cloudant/blob/master/readme.md",
       "openshift.io/support-url": "https://www.ibm.com/cloud/support"
