@@ -5,7 +5,7 @@
       "cloudfoundry:$['cloudant'][0].credentials.url",
       "env:service_cloudant:$.url",
       "env:cloudant_url",
-      "file:/server/config/localdev-config.json:$.cloudant_url"
+      "file:/server/localdev-config.json:$.cloudant_url"
     ]
   }
 }
