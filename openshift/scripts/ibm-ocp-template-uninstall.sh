@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage {
-    echo "Usage: ./ibm-svs-template-uninstall.sh --apikey=<api_key> --resource-group-id=<resource_group_id> --cluster-name=<cluster_name> [--template-file=template_file] [--full-uninstall]"
+    echo "Usage: ./ibm-ocp-template-uninstall.sh --apikey=<api_key> --resource-group-id=<resource_group_id> --cluster-name=<cluster_name> [--template-file=template_file] [--full-uninstall]"
     echo "Defaults to the template file located in /openshift/templates."
     echo "If --full-uninstall is specified, all associated operators will also be uninstalled. Otherwise, only the specified or default template will be uninstalled."
 }

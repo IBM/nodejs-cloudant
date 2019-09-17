@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage {
-    echo "Usage: ./ibm-svs-template-install.sh --apikey=<api_key> --resource-group-id=<resource_group_id> --cluster-name=<cluster_name> [--template-file=template_file]"
+    echo "Usage: ./ibm-ocp-template-install.sh --apikey=<api_key> --resource-group-id=<resource_group_id> --cluster-name=<cluster_name> [--template-file=template_file]"
     echo "Defaults to the template file located in /openshift/templates."
 }
 
@@ -67,18 +67,12 @@ echo -e "\nApplying cluster configuration for cluster $CLUSTER_NAME"
 $( ibmcloud ks cluster config $CLUSTER_NAME --admin | grep export)
 
 echo -e "\nInstalling Operator Lifecycle Manager"
-#Q: which of those 2 methods is preferred? Ask Paolo.
-# Install OLM with:
-# oc apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/crds.yaml
-# oc apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/olm.yaml 
-# OR:
 curl -sL -o olm_install.sh https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.11.0/install.sh
 chmod +x ./olm_install.sh
 ./olm_install.sh 0.10.0
 rm ./olm_install.sh
 check_exit "Failed to install the Operator Lifecycle Manager. Check the command output and try again."
 
-# Q: is Marketplace a requirement for IBM Cloud Operator? May not be necessary is that is the only operator we're installing as a prereq for our template
 echo -e "\nInstalling Operator Marketplace"
 OM_TEMP_DIR=om_temp
 mkdir $OM_TEMP_DIR
