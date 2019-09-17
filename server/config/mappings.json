@@ -2,11 +2,11 @@
   "version": 1,
   "cloudant_url": {
     "searchPatterns": [
-      "cloudfoundry:$['cloudantNoSQLDB'][0].credentials.url",
+      "cloudfoundry:$['cloudant'][0].credentials.url",
       "env:service_cloudant:$.url",
       "env:cloudant_url",
       "env:CLOUDANT_URL",
-      "file:/server/config/localdev-config.json:$.cloudant_url"
+      "file:/server/localdev-config.json:$.cloudant_url"
     ]
   }
 }
