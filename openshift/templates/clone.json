@@ -101,7 +101,7 @@
           "type": "Git",
           "git": {
             "uri": "https://github.com/IBM/nodejs-cloudant.git",
-            "ref": "reed"
+            "ref": "master"
           }
         },
         "strategy": {
