@@ -100,8 +100,8 @@
         "source": {
           "type": "Git",
           "git": {
-            "uri": "https://github.com/IBM/nodejs-cloudant.git",
-            "ref": "master"
+            "uri": "${GITHUB_REPO}",
+            "ref": "${BRANCH}"
           }
         },
         "strategy": {
@@ -242,6 +242,20 @@
       "description": "Enter 'lite' or 'standard' to select the IBM Cloudant plan type.",
       "required": true,
       "value": "lite"
+    },
+    {
+      "name": "GITHUB_REPO",
+      "displayName": "Github Repository",
+      "description": "Source code for openshift to build and deploy.",
+      "required": true,
+      "value": "https://github.com/IBM/nodejs-cloudant.git"
+    },
+    {
+      "name": "BRANCH",
+      "displayName": "Branch Name",
+      "description": "Github repo branch name, default is 'master'",
+      "required": true,
+      "value": "master"
     },
     {
       "name": "NODEJS_VERSION",
