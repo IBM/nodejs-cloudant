@@ -1,6 +1,6 @@
 ## Deploying code changes via Github Webhooks in OpenShift
 
-If you created an application from a template in the OpenShift Container Platform Service Catalog and deployed it to your OpenShift cluster, you might be wondering how you can can start iterating on your application. All you need to set up Continuous Delivery with OpenShift is a Github Webhook that will tell OpenShift to automatically pull in your newest changes to build and deploy.
+If you created an application from a template in the OpenShift Container Platform Service Catalog and deployed it to your OpenShift cluster, you might be wondering how you can can start iterating on your application. All you need to do is set up Continuous Delivery with OpenShift is a Github Webhook that will tell OpenShift to automatically pull in your newest changes to build and deploy.
 
 If you would like app as working starting-point the source code for this application is available to be forked from the [IBM Node.js + Cloudant](https://github.com/IBM/nodejs-cloudant). You can use the 'Node.js + IBM Cloudant' tile on the Service catalog with your forked repository to create builds and deployments on OpenShift. After you get a Deployment set up, you can configure a webhook in your repository to make OpenShift automatically start a build whenever you push your code:
 
