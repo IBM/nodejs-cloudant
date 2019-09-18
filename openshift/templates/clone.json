@@ -5,16 +5,16 @@
     "name": "nodejs-ibm-cloudant",
     "annotations": {
       "openshift.io/display-name": "Node.js + IBM Cloudant",
-      "description": "An example Node.js application with an IBM Cloudant database. For more information about using this template, including OpenShift considerations, see https://github.com/IBM/nodejs-cloudant/blob/master/readme.md",
-      "tags": "quickstart,nodejs,ibm",
+      "description": "Create example Node.js application or provide your own app, with an IBM Cloudant database instance and binding.",
+      "tags": "quickstart,nodejs,ibm,cloudant",
       "iconClass": "icon-nodejs",
-      "openshift.io/long-description": "",
+      "openshift.io/long-description": "The example application at https://github.com/IBM/nodejs-cloudant uses an IBM Cloudant databse to store a list of names and display the database entries in real-time. For imformation about IBM Cloudant see https://www.ibm.com/cloud/cloudant. For more information about using this template, including OpenShift considerations, see https://github.com/IBM/nodejs-cloudant/blob/master/readme.md",
       "openshift.io/provider-display-name": "IBM, Inc.",
       "openshift.io/documentation-url": "https://github.com/IBM/nodejs-cloudant/blob/master/readme.md",
       "openshift.io/support-url": "https://www.ibm.com/cloud/support"
     }
   },
-  "message": "message",
+  "message": "A Node.js app is being generated and the IBM Cloud Operator will provision an instance of Cloudant and bind it to your app. To view your deployment navigate to your project.",
   "labels": {
     "template": "nodejs-ibm-cloudant",
     "app": "nodejs-ibm-cloudant"
@@ -232,21 +232,22 @@
     {
       "name": "NAME",
       "displayName": "Name",
-      "description": "The name assigned to all of the frontend objects defined in this template.",
+      "description": "The name for application and associated objects. Lowercase letters, numbers, and '-' only.",
       "required": true,
-      "value": "nodejs-ibm-cloudant"
+      "value": "nodejs-ibm-cloudant",
+      "from": "[a-z0-9-]{40}"
     },
     {
       "name": "PLAN",
       "displayName": "Cloudant Plan",
-      "description": "Enter 'lite' or 'standard' to select the IBM Cloudant plan type.",
+      "description": "IBM Cloudant plan type, enter 'lite' or 'standard', or 'dedicated-hardware'. Note: only one instance of a free 'lite' plan is allowed per account.",
       "required": true,
       "value": "lite"
     },
     {
       "name": "GITHUB_REPO",
       "displayName": "Github Repository",
-      "description": "Source code for openshift to build and deploy.",
+      "description": "Source code for openshift to build and deploy. Have your own repo? Paste it here.",
       "required": true,
       "value": "https://github.com/IBM/nodejs-cloudant.git"
     },
@@ -260,8 +261,8 @@
     {
       "name": "NODEJS_VERSION",
       "displayName": "Version of NodeJS Image",
-      "description": "Version of NodeJS image to be used (6, 8, or latest).",
-      "value": "8",
+      "description": "Version of NodeJS image to be used (8, 10 or latest).",
+      "value": "10",
       "required": true
     },
     {
@@ -274,7 +275,7 @@
     {
       "name": "NPM_MIRROR",
       "displayName": "Custom NPM Mirror URL",
-      "description": "The custom NPM mirror URL",
+      "description": "The custom NPM mirror URL. Leave blank to use global NPM.",
       "value": ""
     }
   ]
