@@ -21,8 +21,43 @@ In this sample application, you will create a basic web application using Expres
 
 ## Steps
 
-You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/create-app?navMode=starterkits) or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/api/health/status` endpoint to build out your cloud native application.
+Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli/index.html#overview) on your machine by using the following installation command: `curl -sL https://ibm.biz/idt-installer | bash`.
 
+You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/create-app?navMode=starterkits), deploy to OpenShift Container Platform, or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/api/health/status` endpoint to build out your cloud native application.
+
+### Deploy to IBM Cloud
+
+Your application will be compiled with Docker containers. To compile and run your app, run:
+
+```bash
+ibmcloud dev build
+ibmcloud dev run
+```
+
+This will launch your application locally.  When you are ready to deploy to IBM Cloud on CloudFoundry or Kubernetes, run one of the commands below:
+
+```bash
+ibmcloud dev deploy -t buildpack
+ibmcloud dev deploy -t container
+```
+
+You can build and debug your app locally with:
+
+```bash
+ibmcloud dev build --debug
+ibmcloud dev debug
+```
+
+### Deploy to OpenShift Container Platform
+
+1. In a terminal, clone this repo and navigate to the application code's root directory.
+2. If you do not have an existing IBM Cloud API key, use the `ibmcloud iam api-key-create` command to create one and note the API key string.
+3. Use the `ibmcloud resource groups` command to find the ID of the resource group to associate with the application.
+4. Use the `ibmcloud ks clusters` command to retrieve the name of the Kubernetes cluster where the application will be deployed.
+5. Install required operators and this application's template by executing `./openshift/scripts/ibm-ocp-template-install.sh --apikey=<api_key> --resource-group-id=<resource_group_id> --cluster-name=<cluster_name>`.
+6. In the IBM Cloud Console, navigate to your OpenShift cluster and open the OpenShift web console.
+7. Navigate to the Service Catalog, locate the "Node.js + IBM Cloudant" tile and select it.
+8. Follow the instructions to complete the deployment.
 
 ### Building Locally
 
@@ -48,28 +83,7 @@ Your application will be running at `http://localhost:3000`.  You can access the
 
 <!--#### IBM Cloud Developer Tools
 
-Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli/index.html#overview) on your machine by using the following installation command: `curl -sL https://ibm.biz/idt-installer | bash`.
-
-Your application will be compiled with Docker containers. To compile and run your app, run:
-
-```bash
-ibmcloud dev build
-ibmcloud dev run
-```
-
-This will launch your application locally.  When you are ready to deploy to IBM Cloud on CloudFoundry or Kubernetes, run one of the commands below:
-
-```bash
-ibmcloud dev deploy -t buildpack
-ibmcloud dev deploy -t container
-```
-
-You can build and debug your app locally with:
-
-```bash
-ibmcloud dev build --debug
-ibmcloud dev debug
-```-->
+-->
 
 ##### Session Store
 You may see this warning when running `bx dev run`:

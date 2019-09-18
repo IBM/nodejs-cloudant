@@ -53,7 +53,7 @@ if [[ -z "$TEMPLATE_FILE" ]]; then
 fi
 echo "Using template file $TEMPLATE_FILE"
 
-check_input "$API_KEY" "No API key was supplied. A valid IBM Cloud API key is required to login to the IBM Cloud."
+check_input "$API_KEY" "No API key was supplied. A valid IBM Cloud API key is required to login to the IBM Cloud. Use 'ibmcloud iam api-key-create' to create an API key."
 check_input "$RESOURCE_GROUP" "No resource group ID was supplied. Execute 'ibmcloud resource groups' to list resource groups."
 check_input "$CLUSTER_NAME" "No cluster name was supplied. Execute 'ibmcloud ks clusters' to list available clusters."
 check_input "$TEMPLATE_FILE" "No template file was supplied."
