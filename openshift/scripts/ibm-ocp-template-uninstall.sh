@@ -74,8 +74,8 @@ $( ibmcloud ks cluster config $CLUSTER_NAME --admin | grep export)
 if [[ -n "$TEMPLATE_FULL_UNINSTALL" ]]; then
     echo -e "\nUninstalling all operators"
     echo -e "\nUninstalling Operator Lifecycle Manager"
-    kubectl delete -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.11.0/crds.yaml
-    kubectl delete -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.11.0/olm.yaml
+    kubectl delete -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/crds.yaml
+    kubectl delete -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/olm.yaml
 
     echo -e "\nUninstalling Operator Marketplace"
     OM_TEMP_DIR=om_temp
