@@ -6,10 +6,10 @@ From the Web Console homepage, navigate to your project
 1. Click on Browse > Builds
 2. Click the link with your BuildConfig name
 3. Click the Configuration tab
-4. Click on the Actions dropdown, and click 'Edit'
-5. Click on 'Show Advanced Options' 
+4. Click on the Actions dropdown > Edit 
+5. Click on Show Advanced Options 
 6. Under Triggers, click create new Webhook Secret, give it a name, and click Generate and save the generated secret (you will need it later).
-7. Save the build configuration, and navigate back to the Configuration Tab
+7. Click Save, and navigate back to the Configuration Tab
 8. Click the "Copy to clipboard" icon to the right of the "GitHub webhook URL" field
 9. Navigate to your repository on GitHub and click on repository settings > webhooks > Add webhook
 10. Paste your webhook URL provided by OpenShift in the "Payload URL" field
