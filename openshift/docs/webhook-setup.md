@@ -1,6 +1,6 @@
 ## Deploying code changes via Github Webhooks
 
-The source code for this application is available to be forked from the [IBM Node.js Cloudant](https://github.com/IBM/nodejs-cloudant) repository. You can configure a webhook in your repository to make OpenShift automatically start a build whenever you push your code:
+The source code for this application is available to be forked from the [IBM Node.js Cloudant](https://github.com/IBM/nodejs-cloudant) repository. You may need to create a new deployment via the 'Node.js + IBM Cloudant' tile on the Service catalog with your forked repository if you haven't done so already. You can configure a webhook in your repository to make OpenShift automatically start a build whenever you push your code:
 
 From the Web Console homepage, navigate to your project
 1. Click on Browse > Builds
