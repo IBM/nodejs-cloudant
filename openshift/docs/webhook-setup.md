@@ -9,15 +9,15 @@ From the Web Console homepage, navigate to your project
 2. Click the link with your BuildConfig name
 3. Click the Configuration tab
 4. Click on the Actions dropdown > Edit 
-  4a. (Optional) Under Source Configuration enter your forked Github Repository URL (or any other Node.js Repo you would like)
-5. Click on Show Advanced Options 
-6. Under Triggers, click create new Webhook Secret, give it a name, and click Generate and save the generated secret (you will need it later).
-7. Click Save, and navigate back to the Configuration Tab
-8. Click the "Copy to clipboard" icon to the right of the "GitHub webhook URL" field
-9. Navigate to your repository on GitHub and click on repository settings > webhooks > Add webhook
-10. Paste your webhook URL provided by OpenShift in the "Payload URL" field
-11. Change the "Content type" to 'application/json'
-12. Add the Secret value that you saved earlier.
-13. Leave the defaults for the remaining fields — that's it!
+5. (Optional) Under Source Configuration enter your forked Github Repository URL (or any other Node.js Repo you would like)
+6. Click on Show Advanced Options 
+7. Under Triggers, click create new Webhook Secret, give it a name, and click Generate and save the generated secret (you will need it later).
+8. Click Save, and navigate back to the Configuration Tab
+9. Click the "Copy to clipboard" icon to the right of the "GitHub webhook URL" field
+10. Navigate to your repository on GitHub and click on repository settings > webhooks > Add webhook
+11. Paste your webhook URL provided by OpenShift in the "Payload URL" field
+12. Change the "Content type" to 'application/json'
+13. Add the Secret value that you saved earlier.
+14. Leave the defaults for the remaining fields — that's it!
 
 Note: adding a webhook requires your OpenShift server to be reachable from GitHub.
