@@ -54,7 +54,7 @@ do
 done
 
 if [[ -z "$TEMPLATE_FILE" ]]; then
-    TEMPLATE_FILE=./../templates/clone.json
+    TEMPLATE_FILE=$PWD/openshift/templates/clone.json
 fi
 echo "Using template file $TEMPLATE_FILE"
 
@@ -88,7 +88,6 @@ if [[ -n "$TEMPLATE_FULL_UNINSTALL" ]]; then
     cd ..
     rm -rf ./$OM_TEMP_DIR
     check_exit_custom $GIT_CLONE_EXIT "Failed to download Operator Marketplace resource definitions. Ensure that you are connected to the Internet and can access GitHub."
-    check_exit_custom $OC_APPLY_EXIT "Failed to uninstall Operator Marketplace. Check the command output and try again."
 
     echo -e "\nUninstalling IBM Cloud Operator"
     kubectl delete -f https://operatorhub.io/install/ibmcloud-operator.yaml
