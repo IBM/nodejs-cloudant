@@ -61,7 +61,7 @@ function updateResponseArea(responseData) {
   let responseHead = document.querySelector('#responseHead');
   let responseArea = document.querySelector('#responseArea');
   if (responseData.length === 0) {
-    responseHead.textContent = 'No names in database.'
+    responseHead.textContent = 'No items in database.'
   } else {
     responseHead.textContent = 'Database contents:'
     for (let i = 0; i < responseData.length; i++ ) {
