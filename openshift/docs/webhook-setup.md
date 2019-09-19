@@ -4,7 +4,7 @@ If you created an application from a template in the OpenShift Container Platfor
 
 If you would like an app as a working starting-point, the source code for this application is available to be forked from the [IBM Node.js + Cloudant](https://github.com/IBM/nodejs-cloudant). You can use the 'Node.js + IBM Cloudant' tile on the Service catalog with your forked repository to create builds and deployments on OpenShift (This will provision a new Cloudant instance as well). After you get a Deployment set up, you can configure a webhook in your repository to make OpenShift automatically start a build whenever you push changes to your code. 
 
-Note: Each time that you use the 'Node.js + IBM Cloudant' tile on the Service Catalog, a new instance of IBM Cloudant will be provisioned. If you already have an instance of IBM Cloud provisioned, and want to continue using the same instance, be sure to do optional Step #5 below to build and deploy _your_ repo, and do not use the 'Node.js + IBM Cloudant' tile to build and deploy your code.
+Note: Each time that you use the 'Node.js + IBM Cloudant' tile on the Service Catalog, a new instance of IBM Cloudant will be provisioned. If you already have an instance of IBM Cloudant provisioned, and want to continue using the same instance, be sure to do optional Step #5 below to build and deploy _your_ repo, and do not use the 'Node.js + IBM Cloudant' tile to build and deploy your code.
 
 From the Web Console homepage, navigate to your project
 1. Click on Browse > Builds
