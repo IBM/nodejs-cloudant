@@ -49,11 +49,11 @@ do
 done
 
 if [[ -z "$TEMPLATE_FILE" ]]; then
-    TEMPLATE_FILE=./../templates/clone.json
+    TEMPLATE_FILE=$PWD/openshift/templates/clone.json
 fi
 echo "Using template file $TEMPLATE_FILE"
 
-check_input "$API_KEY" "No API key was supplied. A valid IBM Cloud API key is required to login to the IBM Cloud."
+check_input "$API_KEY" "No API key was supplied. A valid IBM Cloud API key is required to login to the IBM Cloud. Use 'ibmcloud iam api-key-create' to create an API key."
 check_input "$RESOURCE_GROUP" "No resource group ID was supplied. Execute 'ibmcloud resource groups' to list resource groups."
 check_input "$CLUSTER_NAME" "No cluster name was supplied. Execute 'ibmcloud ks clusters' to list available clusters."
 check_input "$TEMPLATE_FILE" "No template file was supplied."
@@ -67,10 +67,7 @@ echo -e "\nApplying cluster configuration for cluster $CLUSTER_NAME"
 $( ibmcloud ks cluster config $CLUSTER_NAME --admin | grep export)
 
 echo -e "\nInstalling Operator Lifecycle Manager"
-curl -sL -o olm_install.sh https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.11.0/install.sh
-chmod +x ./olm_install.sh
-./olm_install.sh 0.10.0
-rm ./olm_install.sh
+kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/crds.yaml && kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/olm.yaml
 check_exit "Failed to install the Operator Lifecycle Manager. Check the command output and try again."
 
 echo -e "\nInstalling Operator Marketplace"
