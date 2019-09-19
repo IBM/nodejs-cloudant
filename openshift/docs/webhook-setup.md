@@ -9,6 +9,7 @@ From the Web Console homepage, navigate to your project
 2. Click the link with your BuildConfig name
 3. Click the Configuration tab
 4. Click on the Actions dropdown > Edit 
+  4a. (Optional) Under Source Configuration enter your forked Github Repository URL (or any other Node.js Repo you would like)
 5. Click on Show Advanced Options 
 6. Under Triggers, click create new Webhook Secret, give it a name, and click Generate and save the generated secret (you will need it later).
 7. Click Save, and navigate back to the Configuration Tab
