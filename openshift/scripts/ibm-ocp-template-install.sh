@@ -65,13 +65,12 @@ oc login -u apikey -p $API_KEY
 
 echo -e "\nApplying cluster configuration for cluster $CLUSTER_NAME"
 $( ibmcloud ks cluster config $CLUSTER_NAME --admin | grep export)
-check_exit "Failed to apply cluster configuration for cluster $CLUSTER_NAME. Check the cluster name and try again."
 
 echo -e "\nInstalling Operator Lifecycle Manager"
 kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/crds.yaml && kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/olm.yaml
 check_exit "Failed to install the Operator Lifecycle Manager. Check the command output and try again."
 
-echo -e "\nInstalling Marketplace Operator"
+echo -e "\nInstalling Operator Marketplace"
 OM_TEMP_DIR=om_temp
 mkdir $OM_TEMP_DIR
 cd $OM_TEMP_DIR
@@ -87,7 +86,7 @@ check_exit_custom $OC_APPLY_EXIT "Failed to install Operator Marketplace. Check 
 echo -e "\nInstalling IBM Cloud Operator"
 kubectl apply -f https://operatorhub.io/install/ibmcloud-operator.yaml
 check_exit "Failed to deploy IBM Cloud Operator. Ensure the $CLUSTER_NAME cluster is available."
-curl -sL https://raw.githubusercontent.com/IBM/cloud-operators/master/hack/config-operator.sh | bash
+source <(curl -sL https://raw.githubusercontent.com/IBM/cloud-operators/master/hack/config-operator.sh)
 check_exit "Failed to configure IBM Cloud Operator. Check the command output and try again."
 
 # Create and manually install a new template to the catalog -- this will also be scoped for that cluster only.

@@ -1,8 +1,9 @@
 #!/bin/bash
 
 function usage {
-    echo "Usage: ./ibm-ocp-template-uninstall.sh --apikey=<api_key> --resource-group-id=<resource_group_id> --cluster-name=<cluster_name> [--template-file=template_file]"
+    echo "Usage: ./ibm-ocp-template-uninstall.sh --apikey=<api_key> --resource-group-id=<resource_group_id> --cluster-name=<cluster_name> [--template-file=template_file] [--full-uninstall]"
     echo "Defaults to the template file located in /openshift/templates."
+    echo "If --full-uninstall is specified, all associated operators will also be uninstalled. Otherwise, only the specified or default template will be uninstalled."
 }
 
 function check_input {
@@ -69,7 +70,29 @@ oc login -u apikey -p $API_KEY
 
 echo -e "\nApplying cluster configuration for cluster $CLUSTER_NAME"
 $( ibmcloud ks cluster config $CLUSTER_NAME --admin | grep export)
-check_exit "Failed to apply cluster configuration for cluster $CLUSTER_NAME. Check the cluster name and try again."
+
+if [[ -n "$TEMPLATE_FULL_UNINSTALL" ]]; then
+    echo -e "\nUninstalling all operators"
+    echo -e "\nUninstalling Operator Lifecycle Manager"
+    kubectl delete -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/crds.yaml
+    kubectl delete -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/olm.yaml
+
+    echo -e "\nUninstalling Operator Marketplace"
+    OM_TEMP_DIR=om_temp
+    mkdir $OM_TEMP_DIR
+    cd $OM_TEMP_DIR
+    git clone https://github.com/operator-framework/operator-marketplace.git
+    GIT_CLONE_EXIT=$?
+    oc delete -f operator-marketplace/deploy/upstream/
+    OC_APPLY_EXIT=$?
+    cd ..
+    rm -rf ./$OM_TEMP_DIR
+    check_exit_custom $GIT_CLONE_EXIT "Failed to download Operator Marketplace resource definitions. Ensure that you are connected to the Internet and can access GitHub."
+
+    echo -e "\nUninstalling IBM Cloud Operator"
+    kubectl delete -f https://operatorhub.io/install/ibmcloud-operator.yaml
+    check_exit "Failed to uninstall IBM Cloud Operator. Ensure the $CLUSTER_NAME cluster is available."
+fi
 
 echo -e "\nUninstalling template $TEMPLATE_FILE"
 oc -n openshift delete -f "$TEMPLATE_FILE"
