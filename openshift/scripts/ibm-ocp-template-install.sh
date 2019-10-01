@@ -68,7 +68,7 @@ $( ibmcloud ks cluster config $CLUSTER_NAME --admin | grep export)
 check_exit "Failed to apply cluster configuration for cluster $CLUSTER_NAME. Check the cluster name and try again."
 
 echo -e "\nInstalling Operator Lifecycle Manager"
-kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/crds.yaml && kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.10.0/olm.yaml
+kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.12.0/crds.yaml && kubectl apply -f https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.12.0/olm.yaml
 check_exit "Failed to install the Operator Lifecycle Manager. Check the command output and try again."
 
 echo -e "\nInstalling Marketplace Operator"
