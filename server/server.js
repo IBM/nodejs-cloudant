@@ -16,10 +16,10 @@ app.use(express.static(path.join('views')));
 
 // routes and api calls
 app.use('/api/names', nameRoutes);
-app.use('/api/health', healthRoutes);
+app.use('/health', healthRoutes);
 
 // default path to serve up index.html (single page application)
-app.all('*', (req,res) => {
+app.all('', (req,res) => {
   res.status(200).sendFile(path.join(__dirname, '../views', 'index.html'));
 });
 

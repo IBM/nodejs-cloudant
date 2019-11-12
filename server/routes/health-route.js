@@ -5,6 +5,6 @@ const HealthController = require('../controllers/health-controller');
 const router = express.Router();
 
 // define routes
-router.get('/status', HealthController.getHealth);
+router.get('', HealthController.getHealth);
 
 module.exports = router;
