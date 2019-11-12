@@ -23,7 +23,7 @@ In this sample application, you will create a basic web application using Expres
 
 Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli/index.html#overview) on your machine by using the following installation command: `curl -sL https://ibm.biz/idt-installer | bash`.
 
-You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/create-app?navMode=starterkits), deploy to OpenShift Container Platform, or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/api/health/status` endpoint to build out your cloud native application.
+You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/create-app?navMode=starterkits), deploy to OpenShift Container Platform, or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
 
 ### Deploy to IBM Cloud
 
