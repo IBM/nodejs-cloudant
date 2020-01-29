@@ -17,35 +17,22 @@
 
 In this sample application, you will create a basic web application using Express to serve web pages in Node.js integrated complete with standard best practices, including a health check and application metric monitoring. In addition, this sample includes integration with Cloudant, a fully managed JSON document database.
 
+You can access the cloud native microservice capabilities at the following endpoints:
+- Health endpoint: `/health`
 
 ## Steps
 
-Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli/index.html#overview) on your machine by using the following installation command: `curl -sL https://ibm.biz/idt-installer | bash`.
+You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/starter-kits/nodejs-+-cloudant) or [build it locally](#building-locally) by cloning this repo first. Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
 
-You can [deploy this application to IBM Cloud](https://cloud.ibm.com/developer/appservice/create-app?navMode=starterkits), deploy to OpenShift Container Platform, or [build it locally](#building-locally) by cloning this repo first.  Once your app is live, you can access the `/health` endpoint to build out your cloud native application.
+### Deploying to IBM Cloud
 
-### Deploy to IBM Cloud
+<p align="center">
+    <a href="https://cloud.ibm.com/developer/appservice/starter-kits/nodejs-+-cloudant">
+    <img src="https://cloud.ibm.com/devops/setup/deploy/button_x2.png" alt="Deploy to IBM Cloud">
+    </a>
+</p>
 
-Your application will be compiled with Docker containers. To compile and run your app, run:
-
-```bash
-ibmcloud dev build
-ibmcloud dev run
-```
-
-This will launch your application locally.  When you are ready to deploy to IBM Cloud on CloudFoundry or Kubernetes, run one of the commands below:
-
-```bash
-ibmcloud dev deploy -t buildpack
-ibmcloud dev deploy -t container
-```
-
-You can build and debug your app locally with:
-
-```bash
-ibmcloud dev build --debug
-ibmcloud dev debug
-```
+Use the button above to deploy this same application to IBM Cloud. This option will create a deployment pipeline, complete with a hosted GitLab project and DevOps toolchain.  You will have the option of deploying to either Cloud Foundry or a Kubernetes cluster. [IBM Cloud DevOps](https://www.ibm.com/cloud/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud. 
 
 ### Deploy to OpenShift Container Platform
 
@@ -64,9 +51,9 @@ To get started building this application locally, you can either run the applica
 
 #### Native Application Development
 
-- Install the latest [Node.js](https://nodejs.org/en/download/) 6+ LTS version.
+- Install the latest [Node.js](https://nodejs.org/en/download/) 10+ LTS version.
 
-Once Node.js has been installed, you can download the project dependencies with:
+Once the Node toolchain has been installed, you can download the project dependencies with:
 
 ```bash
 npm install
@@ -80,21 +67,44 @@ npm run start
 
 Your application will be running at `http://localhost:3000`.  You can access the `/health` endpoint at the host.
 
-<!--#### IBM Cloud Developer Tools
+#### IBM Cloud Developer Tools
 
--->
+Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) on your machine by running the following command:
+```
+curl -sL https://ibm.biz/idt-installer | bash
+```
 
-##### Session Store
-You may see this warning when running `bx dev run`:
+Create an application on IBM Cloud by running:
+
+```bash
+ibmcloud dev create
 ```
-Warning: connect.session() MemoryStore is not
-designed for a production environment, as it will leak
-memory, and will not scale past a single process.
+
+This will create and download a starter application with the necessary files needed for local development and deployment.
+
+Your application will be compiled with Docker containers. To compile and run your app, run:
+
+```bash
+ibmcloud dev build
+ibmcloud dev run
 ```
-When deploying to production, it is best practice to configure sessions to be stored in an external persistence service.
+
+This will launch your application locally. When you are ready to deploy to IBM Cloud on Cloud Foundry or Kubernetes, run one of the following commands:
+
+```bash
+ibmcloud dev deploy -t buildpack // to Cloud Foundry
+ibmcloud dev deploy -t container // to K8s cluster
+```
+
+You can build and debug your app locally with:
+
+```bash
+ibmcloud dev build --debug
+ibmcloud dev debug
+```
 
 ## Next Steps
-* Learn more about augmenting your Node.js applications on IBM Cloud with the [Node Programming Guide](https://cloud.ibm.com/docs/node).
+* Learn more about augmenting your Node.js applications on IBM Cloud with the [Node Programming Guide](https://cloud.ibm.com/docs/node?topic=nodejs-getting-started).
 * Explore other [sample applications](https://cloud.ibm.com/developer/appservice/starter-kits) on IBM Cloud.
 
 ## License
