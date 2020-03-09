@@ -9,7 +9,7 @@
     "start": "node server/server.js",
     "test": "nyc mocha --exit",
     "lint": "eslint --ignore-path .gitignore .",
-    "fix": "eslint --fix",
+    "fix": "eslint --fix .",
     "devserver": "nodemon server/server.js"
   },
   "devDependencies": {
