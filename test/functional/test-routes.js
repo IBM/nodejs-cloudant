@@ -14,7 +14,8 @@ describe('GET /', () => {
       .expect(200)
       .then(response => {
         expect(response.text).to.include(
-          'You are running a Node.js app with an IBM managed instance of Cloudant.'
+          'You are running a Node.js app with an IBM managed \
+           instance of Cloudant.'
         );
       });
   });
