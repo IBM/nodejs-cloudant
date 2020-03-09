@@ -2,6 +2,6 @@
 exports.getHealth = (req, res, next) => {
   console.log('In controller - getHealth');
   res.json({
-    status: 'UP'
+    status: 'UP',
   });
 };

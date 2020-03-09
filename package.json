@@ -6,17 +6,12 @@
     "entrypoint": "server/server.js"
   },
   "scripts": {
-    "check-coverage": "nyc report --check-coverage --lines 100",
+    "check-coverage": "nyc report --check-coverage --lines 100 --no-verify",
     "dev": "nodemon server/server.js",
     "start": "node server/server.js",
     "test": "nyc mocha test --recursive --exit",
     "lint": "eslint --ignore-path .gitignore .",
     "fix": "eslint --fix ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run test && npm run check-coverage"
-    }
   },
   "dependencies": {
     "@cloudant/cloudant": "^4.2.3",
