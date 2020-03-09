@@ -6,19 +6,17 @@
     "entrypoint": "server/server.js"
   },
   "scripts": {
+    "check-coverage": "nyc report --check-coverage --lines 100",
+    "dev": "nodemon server/server.js",
     "start": "node server/server.js",
-    "test": "nyc mocha --exit",
+    "test": "nyc mocha test --recursive --exit",
     "lint": "eslint --ignore-path .gitignore .",
-    "fix": "eslint --fix .",
-    "devserver": "nodemon server/server.js"
+    "fix": "eslint --fix ."
   },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^6.8.0",
-    "eslint-config-strongloop": "^2.1.0",
-    "mocha": "^6.0.0",
-    "nodemon": "^2.0.2",
-    "nyc": "^14.1.1"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint && npm run test && npm run check-coverage"
+    }
   },
   "dependencies": {
     "@cloudant/cloudant": "^4.2.3",
@@ -26,5 +24,17 @@
     "cfenv": "^1.2.2",
     "express": "^4.17.1",
     "ibm-cloud-env": "^0.2.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "husky": "^4.2.1",
+    "mocha": "^7.0.1",
+    "nodemon": "^2.0.2",
+    "nyc": "^15.0.0",
+    "sinon": "^8.1.1",
+    "sinon-chai": "^3.4.0",
+    "supertest": "^4.0.2"
   }
 }
