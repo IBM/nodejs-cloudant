@@ -1,5 +1,6 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
+require('chai').should();
 
 // below code demonstrates using various methods of testing
 describe('Demonstrating testing with various assertion methods', function() {
