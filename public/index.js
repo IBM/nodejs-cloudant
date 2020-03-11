@@ -1,5 +1,3 @@
-"use strict";
-
 // initialize variables and display
 const http = new XMLHttpRequest();
 let responseData = [];
@@ -9,8 +7,8 @@ getNames();
 let inputName = document.querySelector('input');
 inputName.onkeypress = function(event) {
   let name = inputName.value.trim();
-  if (name.length == 0 || event.key !== 'Enter') {
-    if (event.key === 'Enter') { 
+  if (name.length === 0 || event.key !== 'Enter') {
+    if (event.key === 'Enter') {
       alert('Please enter a name.');
       inputName.value = '';
     }
@@ -18,20 +16,20 @@ inputName.onkeypress = function(event) {
   }
   inputName.value = '';
   addName(name);
-}
+};
 
 // get all names from database
 function getNames() {
   http.open('GET', location + 'api/names');
   http.onreadystatechange = function() {
-    if (http.readyState == XMLHttpRequest.DONE && http.status === 200) {
+    if (http.readyState === XMLHttpRequest.DONE && http.status === 200) {
       responseData = JSON.parse(http.responseText);
       responseData.sort((a, b) => a.timestamp.localeCompare(b.timestamp));
       updateResponseArea(responseData);
     } else if (http.readyState === XMLHttpRequest.DONE) {
       alert('An error occurred when getting names from the database.');
     }
-  }
+  };
   http.send();
 }
 
@@ -43,12 +41,12 @@ function addName(name) {
   let timestamp = new Date().toISOString();
   let data = 'name=' + name + '&timestamp=' + timestamp;
   http.onreadystatechange = function() {
-    if (http.readyState == XMLHttpRequest.DONE && http.status === 201) {
+    if (http.readyState === XMLHttpRequest.DONE && http.status === 201) {
       getNames();
     } else if (http.readyState === XMLHttpRequest.DONE && http.status !== 201) {
       alert('An error occurred when adding the name to the database.');
     }
-  }
+  };
   http.send(data);
 }
 
@@ -61,10 +59,10 @@ function updateResponseArea(responseData) {
   let responseHead = document.querySelector('#responseHead');
   let responseArea = document.querySelector('#responseArea');
   if (responseData.length === 0) {
-    responseHead.textContent = 'No items in database.'
+    responseHead.textContent = 'No items in database.';
   } else {
-    responseHead.textContent = 'Database contents:'
-    for (let i = 0; i < responseData.length; i++ ) {
+    responseHead.textContent = 'Database contents:';
+    for (let i = 0; i < responseData.length; i++) {
       let li = document.createElement('LI');
       li.textContent = responseData[i].name;
       li.style.marginTop = '10px';
@@ -75,5 +73,8 @@ function updateResponseArea(responseData) {
 
 // sanitize inputs to prevent xss
 function sanitizeInput(str) {
-  return String(str).replace(/&(?!amp;|lt;|gt;)/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return String(str)
+    .replace(/&(?!amp;|lt;|gt;)/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
 }
