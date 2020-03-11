@@ -3,14 +3,11 @@ FROM registry.access.redhat.com/ubi8/nodejs-12
 # Change working directory
 WORKDIR /app
 
-## NOTE - rhel enforces user container permissions stronger ##
 # Install npm production packages
-USER root
-COPY --chown=1001:1001 package.json /app/
+COPY package.json /app/
 RUN cd /app
 RUN npm install --production
-COPY --chown=1001:1001 . /app
-USER 1001
+COPY . /app
 
 ENV NODE_ENV production
 ENV PORT 3000
