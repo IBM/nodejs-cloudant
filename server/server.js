@@ -8,19 +8,19 @@ const healthRoutes = require('./routes/health-route.js');
 const app = express();
 
 // enable parsing of http request body
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // access to static files
-app.use(express.static(path.join('views')));
+app.use(express.static(path.join('public')));
 
 // routes and api calls
 app.use('/api/names', nameRoutes);
 app.use('/health', healthRoutes);
 
 // default path to serve up index.html (single page application)
-app.all('', (req,res) => {
-  res.status(200).sendFile(path.join(__dirname, '../views', 'index.html'));
+app.all('', (req, res) => {
+  res.status(200).sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 // start node server
@@ -34,14 +34,14 @@ app.use((req, res, next) => {
   const error = new Error('Not found');
   error.status = 404;
   next(error);
-})
+});
 
 // error handler for all other uncaught or thrown errors
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
     error: {
-      message: error.message
-    }
+      message: error.message,
+    },
   });
-})
+});
