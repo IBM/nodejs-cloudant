@@ -1,0 +1,13 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "node": true,
+        "mocha": true
+    },
+    "extends": "strongloop",
+    "parserOptions": { 
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    }
+}
