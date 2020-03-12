@@ -1,5 +1,6 @@
 FROM registry.access.redhat.com/ubi8
 
+RUN curl -sL https://rpm.nodesource.com/setup_12.x | bash -
 RUN yum install -y nodejs
 
 WORKDIR /opt/app-root/src
