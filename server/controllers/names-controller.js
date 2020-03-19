@@ -2,8 +2,6 @@
 const IBMCloudEnv = require('ibm-cloud-env');
 IBMCloudEnv.init('/server/config/mappings.json');
 
-console.log('Cloudant URL: ' + process.env.CLOUDANT_URL);
-
 // initialize Cloudant
 const CloudantSDK = require('@cloudant/cloudant');
 const cloudant = new CloudantSDK(IBMCloudEnv.getString('cloudant_url'));
@@ -25,7 +23,7 @@ const mydb = cloudant.db.use('mydb');
 // get names from database
 exports.getNames = (req, res, next) => {
   console.log('In route - getNames');
-  mydb.list({include_docs: true})
+  return mydb.list({include_docs: true})
     .then(fetchedNames => {
       let names = [];
       let row = 0;
@@ -38,11 +36,11 @@ exports.getNames = (req, res, next) => {
         row = row + 1;
       });
       console.log('Get names successful');
-      res.status(200).json(names);
+      return res.status(200).json(names);
     })
     .catch(error => {
       console.log('Get names failed');
-      res.status(500).json({
+      return res.status(500).json({
         message: 'Get names failed.',
         error: error,
       });
@@ -56,10 +54,10 @@ exports.addName = (req, res, next) => {
     name: req.body.name,
     timestamp: req.body.timestamp,
   };
-  mydb.insert(name)
+  return mydb.insert(name)
     .then(addedName => {
       console.log('Add name successful');
-      res.status(201).json({
+      return res.status(201).json({
         _id: addedName.id,
         name: addedName.name,
         timestamp: addedName.timestamp,
@@ -67,7 +65,7 @@ exports.addName = (req, res, next) => {
     })
     .catch(error => {
       console.log('Add name failed');
-      res.status(500).json({
+      return res.status(500).json({
         message: 'Add name failed.',
         error: error,
       });
