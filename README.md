@@ -47,7 +47,7 @@ Click **Deploy to IBM Cloud** to deploy this same application to IBM Cloud. This
 7. Navigate to the Service Catalog, locate the "Node.js + IBM Cloudant" tile and select it.
 8. Follow the instructions to complete the deployment.
 
-### Building Locally
+### Building locally
 
 To get started building this application locally, you can either run the application natively or use the [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) for containerization and easy deployment to IBM Cloud.
 
@@ -115,7 +115,7 @@ To run tests and code coverage, run `npm run test`. A `coverage` folder will be 
 
 By default, a [Husky](https://github.com/typicode/husky) pre-commit hook is defined in `package.json`, which runs linting, testing, and code coverage before the commit is made. If either the linting, testing, or code coverage fails, the pre-commit hook prevents the changes from being committed. Review the results and fix the problems, or modify the thresholds to allow the commit to succeed.
 
-## Next Steps
+## Next steps
 * Learn more about augmenting your Node.js applications on IBM Cloud with the [Node Programming Guide](https://cloud.ibm.com/docs/node?topic=nodejs-getting-started).
 * Explore other [sample applications](https://cloud.ibm.com/developer/appservice/starter-kits) on IBM Cloud.
 
