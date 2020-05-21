@@ -51,7 +51,7 @@ describe('Test golden paths of names controller', () => {
     sandbox.spy(res, 'status');
 
     namesController = mockRequire.reRequire(
-      '../../../server/controllers/names-controller'
+      '../../../server/controllers/names-controller',
     );
   });
 
@@ -130,7 +130,7 @@ describe('Test failure paths of names controller', () => {
     sandbox.spy(res, 'status');
 
     namesController = mockRequire.reRequire(
-      '../../../server/controllers/names-controller'
+      '../../../server/controllers/names-controller',
     );
   });
 

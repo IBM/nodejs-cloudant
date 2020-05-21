@@ -32,7 +32,7 @@ describe('GET /', () => {
       .expect(200)
       .then(response => {
         expect(response.text).to.include(
-          'IBM Cloud - Node.js + Cloudant'
+          'IBM Cloud - Node.js + Cloudant',
         );
       });
   });
@@ -58,7 +58,7 @@ describe('POST /fake/route', () => {
       .expect(200)
       .then(response => {
         expect(response.text).to.include(
-          'Whoops! Looks like you got lost or couldn\'t find your page.'
+          'Whoops! Looks like you got lost or couldn\'t find your page.',
         );
       });
   });
