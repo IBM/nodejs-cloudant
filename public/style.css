@@ -29,10 +29,3 @@ input {
   border-color: #d4d2d2;
   text-indent: 10px;
 }
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 50px;
-  width: 100%;
-}
