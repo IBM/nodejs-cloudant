@@ -36,17 +36,6 @@ Click **Deploy to IBM Cloud** to deploy this same application to IBM Cloud. This
 
 [IBM Cloud DevOps](https://www.ibm.com/cloud/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud.
 
-### Deploy to OpenShift Container Platform
-
-1. In a terminal, clone this repo and navigate to the application code's root directory.
-2. If you do not have an existing IBM Cloud API key, use the `ibmcloud iam api-key-create` command to create one and note the API key string.
-3. Use the `ibmcloud resource groups` command to find the ID of the resource group to associate with the application.
-4. Use the `ibmcloud ks clusters` command to retrieve the name of the Kubernetes cluster where the application will be deployed.
-5. Install required operators and this application's template by executing `./openshift/scripts/ibm-ocp-template-install.sh --apikey=<api_key> --resource-group-id=<resource_group_id> --cluster-name=<cluster_name>`.
-6. In the IBM Cloud Console, navigate to your OpenShift cluster and open the OpenShift web console.
-7. Navigate to the Service Catalog, locate the "Node.js + IBM Cloudant" tile and select it.
-8. Follow the instructions to complete the deployment.
-
 ### Building locally
 
 To get started building this application locally, you can either run the application natively or use the [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) for containerization and easy deployment to IBM Cloud.
