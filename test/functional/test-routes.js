@@ -8,7 +8,15 @@ class cloudantMock {
   constructor() {
     this.db = {
       create: () => Promise.resolve(),
-      use: () => {},
+      use: () => {
+        return {
+          insert: (name) => Promise.resolve({
+            id: 'id',
+            name: 'name',
+            timestamp: 'timestamp',
+          }),
+        };
+      },
     };
   }
 }
@@ -61,5 +69,27 @@ describe('POST /fake/route', () => {
           'Whoops! Looks like you got lost or couldn\'t find your page.',
         );
       });
+  });
+});
+
+describe('POST /api/names', () => {
+  it('responds with created', () => {
+    return request(server)
+      .post('/api/names')
+      .send({
+        name: 'example',
+        timestamp: '2020-11-04T17:53:09.589Z',
+      })
+      .expect('Content-Type', 'application/json; charset=utf-8')
+      .expect(201);
+  });
+});
+
+describe('POST /api/names', () => {
+  it('responds with bad request', () => {
+    return request(server)
+      .post('/api/names')
+      .expect('Content-Type', 'application/json; charset=utf-8')
+      .expect(400);
   });
 });
