@@ -35,7 +35,7 @@ function getNames() {
 
 // add new name to database
 function addName(name) {
-  name = sanitizeInput(name);
+  name = sanitize(name);
   http.open('POST', location + 'api/names');
   http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   let timestamp = new Date().toISOString();
@@ -64,15 +64,15 @@ function updateResponseArea(responseData) {
     responseHead.textContent = 'Database contents:';
     for (let i = 0; i < responseData.length; i++) {
       let li = document.createElement('LI');
-      li.textContent = responseData[i].name;
+      li.textContent = sanitize(responseData[i].name);
       li.style.marginTop = '10px';
       responseArea.appendChild(li);
     }
   }
 }
 
-// sanitize inputs to prevent xss
-function sanitizeInput(str) {
+// sanitize inputs/outputs to prevent xss
+function sanitize(str) {
   return String(str)
     .replace(/&(?!amp;|lt;|gt;)/g, '&amp;')
     .replace(/</g, '&lt;')
