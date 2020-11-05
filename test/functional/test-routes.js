@@ -83,9 +83,7 @@ describe('POST /api/names', () => {
       .expect('Content-Type', 'application/json; charset=utf-8')
       .expect(201);
   });
-});
 
-describe('POST /api/names', () => {
   it('responds with bad request', () => {
     return request(server)
       .post('/api/names')
