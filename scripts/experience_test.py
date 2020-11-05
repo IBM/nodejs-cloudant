@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 
-date = datetime.datetime.now().strftime("%Y %m %d %H%M %S %f")
+date = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
 
 # Do an action on the app's landing page
 options = Options()
