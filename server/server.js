@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const helmet = require('helmet');
+// const helmet = require('helmet');
 const nameRoutes = require('./routes/names-route.js');
 const healthRoutes = require('./routes/health-route.js');
 
@@ -14,9 +14,9 @@ app.use(bodyParser.json());
 
 // if production, enable helmet
 /* istanbul ignore if  */
-if (process.env.VCAP_APPLICATION) {
-  app.use(helmet());
-}
+// if (process.env.VCAP_APPLICATION) {
+//   app.use(helmet());
+// }
 
 // access to static files
 app.use(express.static(path.join('public')));
