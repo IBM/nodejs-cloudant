@@ -34,12 +34,13 @@
     ]
   },
   "dependencies": {
-    "@cloudant/cloudant": "^4.4.0",
+    "@ibm-cloud/cloudant": "^0.0.16",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-validator": "^6.12.0",
     "helmet": "^4.6.0",
-    "ibm-cloud-env": "^0.2.7"
+    "ibm-cloud-env": "^0.2.7",
+    "ibm-cloud-sdk-core": "^2.11.3"
   },
   "devDependencies": {
     "chai": "^4.3.4",
