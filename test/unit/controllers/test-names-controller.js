@@ -12,39 +12,43 @@ chai.use(chaiAsPromised);
 // example golden path export unit tests of names controller
 describe('Test golden paths of names controller', () => {
   class cloudantMock {
-    constructor() {
-      this.db = {
-        create: () => Promise.reject({
-          error: 'file_exists',
-        }),
-        use: () => {
-          return {
-            list: () => Promise.resolve({
-              rows: [
-                {
-                  id: 'id',
-                  doc: {
-                    name: 'name',
-                    timestamp: 'timestamp',
-                  },
-                },
-              ],
-            }),
-            insert: (name) => Promise.resolve({
-              id: 'id',
+    static newInstance(options) {
+      return new CloudantV1(options);
+    }
+  
+    putDatabase(params) {
+      Promise.reject({
+        error: 'file_exists',
+      });
+    }
+
+    postDocument(options) {
+      Promise.resolve({
+        id: 'id',
+        name: 'name',
+        timestamp: 'timestamp',
+      });
+    }
+
+    postAllDocs(params) {
+      Promise.resolve({
+        rows: [
+          {
+            id: 'id',
+            doc: {
               name: 'name',
               timestamp: 'timestamp',
-            }),
-          };
-        },
-      };
+            },
+          },
+        ],
+      });
     }
   }
 
   let namesController;
   let res;
   before(() => {
-    mockRequire('@cloudant/cloudant', cloudantMock);
+    mockRequire('@ibm-cloud/cloudant/cloudant/v1', cloudantMock);
 
     res = mockRequire.reRequire('express/lib/response');
     sandbox.stub(res, 'json');
