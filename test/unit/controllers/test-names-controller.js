@@ -1,3 +1,4 @@
+const { CloudantV1 } = require('@ibm-cloud/cloudant');
 const chai = require('chai');
 const mockRequire = require('mock-require');
 const sinon = require('sinon');
@@ -15,7 +16,7 @@ describe('Test golden paths of names controller', () => {
     static newInstance(options) {
       return new CloudantV1(options);
     }
-  
+
     putDatabase(params) {
       Promise.reject({
         error: 'file_exists',
