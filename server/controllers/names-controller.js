@@ -9,13 +9,12 @@ IBMCloudEnv.init('/server/config/mappings.json');
 const cloudant_url = IBMCloudEnv.getString('cloudant_url');
 
 const cloudant = CloudantV1.newInstance({
-  authenticator: new NoAuthAuthenticator({})
+  authenticator: new NoAuthAuthenticator({}),
 });
 
 cloudant.setServiceUrl(cloudant_url);
 const dbname = 'mydb';
 
-console.log(cloudant)
 // create mydb database if it does not already exist
 cloudant.putDatabase({ db: dbname})
   .then(data => {
@@ -26,7 +25,8 @@ cloudant.putDatabase({ db: dbname})
     if (error.status === 412) {
       console.log(dbname + ' database already exists');
     } else {
-      console.log('Error occurred when creating ' + dbname + ' database', error.error);
+      console.log('Error occurred when creating ' + dbname +
+      ' database', error.error);
     }
   });
 
@@ -69,7 +69,8 @@ exports.addName = (req, res, next) => {
     name: req.body.name,
     timestamp: req.body.timestamp,
   };
-  return cloudant.postDocument({ 
+  
+  return cloudant.postDocument({
     db: dbname,
     document: name,
   })
