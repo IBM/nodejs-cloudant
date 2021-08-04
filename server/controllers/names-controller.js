@@ -69,7 +69,7 @@ exports.addName = (req, res, next) => {
     name: req.body.name,
     timestamp: req.body.timestamp,
   };
-  
+
   return cloudant.postDocument({
     db: dbname,
     document: name,
