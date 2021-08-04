@@ -1,7 +1,7 @@
 // import dependencies
 const IBMCloudEnv = require('ibm-cloud-env');
 const { NoAuthAuthenticator } = require('ibm-cloud-sdk-core');
-const { CloudantV1 } = require('@ibm-cloud/cloudant');
+const CloudantV1 = require('@ibm-cloud/cloudant/cloudant/v1');
 
 IBMCloudEnv.init('/server/config/mappings.json');
 

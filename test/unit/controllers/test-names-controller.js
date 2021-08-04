@@ -1,4 +1,3 @@
-const { CloudantV1 } = require('@ibm-cloud/cloudant');
 const chai = require('chai');
 const mockRequire = require('mock-require');
 const sinon = require('sinon');
@@ -14,17 +13,21 @@ chai.use(chaiAsPromised);
 describe('Test golden paths of names controller', () => {
   class cloudantMock {
     static newInstance(options) {
-      return new CloudantV1(options);
+      return new this;
+    }
+
+    setServiceUrl(url) {
+      return null;
     }
 
     putDatabase(params) {
-      Promise.reject({
+      return Promise.reject({
         error: 'file_exists',
       });
     }
 
     postDocument(options) {
-      Promise.resolve({
+      return Promise.resolve({
         id: 'id',
         name: 'name',
         timestamp: 'timestamp',
@@ -32,7 +35,7 @@ describe('Test golden paths of names controller', () => {
     }
 
     postAllDocs(params) {
-      Promise.resolve({
+      return Promise.resolve({
         rows: [
           {
             id: 'id',
@@ -128,7 +131,7 @@ describe('Test failure paths of names controller', () => {
   let namesController;
   let res;
   before(() => {
-    mockRequire('@cloudant/cloudant', cloudantMock);
+    mockRequire('@ibm-cloudant/cloudant/cloudant/v1', cloudantMock);
 
     res = mockRequire.reRequire('express/lib/response');
     sandbox.stub(res, 'json');

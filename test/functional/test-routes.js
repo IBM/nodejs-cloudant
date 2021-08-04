@@ -1,4 +1,3 @@
-const { CloudantV1 } = require('@ibm-cloud/cloudant');
 const chai = require('chai');
 const mockRequire = require('mock-require');
 const request = require('supertest');
@@ -7,11 +6,21 @@ const expect = chai.expect;
 
 class cloudantMock {
   static newInstance(options) {
-    return new CloudantV1(options);
+    return new this;
   }
 
-  postDocument(options) {
-    Promise.resolve({
+  setServiceUrl(url) {
+    return null;
+  }
+
+  putDatabase(options) {
+    return Promise.reject({
+      error: 'file_exists',
+    });
+  }
+
+  postDocument(params) {
+    return Promise.resolve({
       id: 'id',
       name: 'name',
       timestamp: 'timestamp',
