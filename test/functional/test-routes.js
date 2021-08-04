@@ -15,25 +15,8 @@ class cloudantMock {
       id: 'id',
       name: 'name',
       timestamp: 'timestamp',
-    })
+    });
   }
-/*
-  constructor() {
-    
-    this.db = {
-      create: () => Promise.resolve(),
-      use: () => {
-        return {
-          insert: (name) => Promise.resolve({
-            id: 'id',
-            name: 'name',
-            timestamp: 'timestamp',
-          }),
-        };
-      },
-    };
-    
-  }*/
 }
 
 let server;
