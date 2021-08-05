@@ -55,7 +55,7 @@ describe('Test golden paths of names controller', () => {
               },
             },
           ],
-        }
+        },
       });
     }
   }
@@ -153,7 +153,7 @@ describe('Test failure paths of names controller', () => {
     }
 
     postAllDocs(params) {
-      return Promise.reject('There was an error with postAllDocs.')
+      return Promise.reject('There was an error with postAllDocs.');
     }
   }
 
@@ -184,7 +184,7 @@ describe('Test failure paths of names controller', () => {
     const mockReq = {};
 
     const resultPromise = namesController.getNames(mockReq, res);
-    
+  
     expect(resultPromise).to.eventually.be.fulfilled
       .then(() => {
         expect(res.status).to.have.been.calledOnceWith(500);
