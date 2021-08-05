@@ -14,9 +14,7 @@ class cloudantMock {
   }
 
   putDatabase(options) {
-    return Promise.reject({
-      error: 'file_exists',
-    });
+    return Promise.resolve({});
   }
 
   postDocument(params) {
