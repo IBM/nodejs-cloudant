@@ -5,25 +5,30 @@ const request = require('supertest');
 const expect = chai.expect;
 
 class cloudantMock {
-  constructor() {
-    this.db = {
-      create: () => Promise.resolve(),
-      use: () => {
-        return {
-          insert: (name) => Promise.resolve({
-            id: 'id',
-            name: 'name',
-            timestamp: 'timestamp',
-          }),
-        };
-      },
-    };
+  static newInstance(options) {
+    return new this;
+  }
+
+  setServiceUrl(url) {
+    return null;
+  }
+
+  putDatabase(options) {
+    return Promise.resolve({});
+  }
+
+  postDocument(params) {
+    return Promise.resolve({
+      id: 'id',
+      name: 'name',
+      timestamp: 'timestamp',
+    });
   }
 }
 
 let server;
 before(() => {
-  mockRequire('@cloudant/cloudant', cloudantMock);
+  mockRequire('@ibm-cloud/cloudant/cloudant/v1', cloudantMock);
   server = require('../../server/server');
 });
 
