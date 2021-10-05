@@ -34,10 +34,10 @@
     ]
   },
   "dependencies": {
-    "@cloudant/cloudant": "^4.4.1",
+    "@ibm-cloud/cloudant": "^0.0.20",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "express-validator": "^6.12.1",
+    "express-validator": "^6.12.2",
     "helmet": "^4.6.0",
     "ibm-cloud-env": "^0.2.7"
   },
@@ -46,10 +46,10 @@
     "chai-as-promised": "^7.1.1",
     "eslint": "^7.32.0",
     "eslint-config-strongloop": "^2.1.0",
-    "husky": "^7.0.1",
-    "mocha": "^9.1.0",
+    "husky": "^7.0.2",
+    "mocha": "^9.1.2",
     "mock-require": "^3.0.3",
-    "nodemon": "^2.0.12",
+    "nodemon": "^2.0.13",
     "nyc": "^15.1.0",
     "sinon": "^11.1.2",
     "sinon-chai": "^3.7.0",
