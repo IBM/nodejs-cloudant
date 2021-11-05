@@ -39,7 +39,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
     "helmet": "^4.6.0",
-    "ibm-cloud-env": "^0.2.7"
+    "ibm-cloud-env": "^0.3.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",
