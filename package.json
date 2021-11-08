@@ -39,19 +39,19 @@
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
     "helmet": "^4.6.0",
-    "ibm-cloud-env": "^0.2.7"
+    "ibm-cloud-env": "^0.3.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "eslint": "^8.1.0",
+    "eslint": "^8.2.0",
     "eslint-config-strongloop": "^2.1.0",
     "husky": "^7.0.4",
     "mocha": "^9.1.3",
     "mock-require": "^3.0.3",
     "nodemon": "^2.0.14",
     "nyc": "^15.1.0",
-    "sinon": "^12.0.0",
+    "sinon": "^12.0.1",
     "sinon-chai": "^3.7.0",
     "supertest": "^6.1.6"
   }
