@@ -2,6 +2,10 @@
   "name": "ibm-nodejs-cloudant-app",
   "version": "1.0.0",
   "description": "node.js + express + cloudant",
+  "private": true,
+  "engines": {
+    "node": "^16.0.0"
+  },
   "config": {
     "entrypoint": "server/server.js"
   },
