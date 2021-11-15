@@ -1,5 +1,4 @@
-FROM registry.access.redhat.com/ubi8:8.5 as build
-RUN  dnf module install --nodocs -y nodejs:14 --setopt=install_weak_deps=0 --disableplugin=subscription-manager 
+FROM registry.access.redhat.com/ubi8/nodejs-16-minimal:1
 
 ENV PORT 3000
 ENV NODE_HEAPDUMP_OPTIONS nosignal

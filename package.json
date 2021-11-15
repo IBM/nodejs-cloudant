@@ -2,6 +2,10 @@
   "name": "ibm-nodejs-cloudant-app",
   "version": "1.0.0",
   "description": "node.js + express + cloudant",
+  "private": true,
+  "engines": {
+    "node": "^16.0.0"
+  },
   "config": {
     "entrypoint": "server/server.js"
   },
@@ -34,7 +38,7 @@
     ]
   },
   "dependencies": {
-    "@ibm-cloud/cloudant": "^0.0.20",
+    "@ibm-cloud/cloudant": "^0.0.21",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
