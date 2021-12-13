@@ -39,9 +39,9 @@
   },
   "dependencies": {
     "@ibm-cloud/cloudant": "^0.0.22",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.19.1",
     "express": "^4.17.1",
-    "express-validator": "^6.13.0",
+    "express-validator": "^6.14.0",
     "helmet": "^4.6.0",
     "ibm-cloud-env": "^0.3.0"
   },
