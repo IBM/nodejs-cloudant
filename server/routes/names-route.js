@@ -1,7 +1,8 @@
 // import dependencies and initialize the express router
-const express = require('express');
-const { body, validationResult } = require('express-validator');
-const NamesController = require('../controllers/names-controller');
+import express from 'express';
+import { body, validationResult } from 'express-validator';
+
+import NamesController from '../controllers/names-controller.js';
 
 const router = express.Router();
 
@@ -19,11 +20,13 @@ const validate = validations => {
   };
 };
 
+const namesController = new NamesController();
+
 // define routes
-router.get('', NamesController.getNames);
+router.get('', namesController.getNames);
 router.post('', validate([
   body('name').isAlphanumeric(),
   body('timestamp').isISO8601(),
-]), NamesController.addName);
+]), namesController.addName);
 
-module.exports = router;
+export default router;

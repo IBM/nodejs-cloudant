@@ -1,6 +1,6 @@
-const chai = require('chai');
-const mockRequire = require('mock-require');
-const request = require('supertest');
+import chai from 'chai';
+import request from 'supertest';
+import * as td from 'testdouble';
 
 const expect = chai.expect;
 
@@ -27,13 +27,13 @@ class cloudantMock {
 }
 
 let server;
-before(() => {
-  mockRequire('@ibm-cloud/cloudant/cloudant/v1', cloudantMock);
-  server = require('../../server/server');
+before(async() => {
+  await td.replaceEsm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
+  server = (await import('../../server/server.js')).default;
 });
 
 after(() => {
-  mockRequire.stopAll();
+  td.reset();
 });
 
 // example functional tests of routes
