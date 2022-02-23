@@ -1,8 +1,8 @@
-const chai = require('chai');
-const mockRequire = require('mock-require');
-const sinon = require('sinon');
-const sinonChai = require('sinon-chai');
-const chaiAsPromised = require('chai-as-promised');
+import chai from 'chai';
+import chaiAsPromised from 'chai-as-promised';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai';
+import * as td from 'testdouble';
 
 const expect = chai.expect;
 const sandbox = sinon.createSandbox();
@@ -62,25 +62,25 @@ describe('Test golden paths of names controller', () => {
 
   let namesController;
   let res;
-  before(() => {
-    mockRequire('@ibm-cloud/cloudant/cloudant/v1', cloudantMock);
+  before(async() => {
+    await td.replaceEsm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
 
-    res = mockRequire.reRequire('express/lib/response');
+    res = (await import('express/lib/response.js')).default;
     sandbox.stub(res, 'json');
     sandbox.spy(res, 'status');
 
-    namesController = mockRequire.reRequire(
-      '../../../server/controllers/names-controller',
-    );
+    const NamesController = await
+    (await import('../../../server/controllers/names-controller.js')).default;
+    namesController = new NamesController();
   });
 
   afterEach(() => {
     sandbox.reset();
+    td.reset();
   });
 
   after(() => {
     sandbox.restore();
-    mockRequire.stopAll();
   });
 
   it('should return some names', () => {
@@ -159,16 +159,16 @@ describe('Test failure paths of names controller', () => {
 
   let namesController;
   let res;
-  before(() => {
-    mockRequire('@ibm-cloud/cloudant/cloudant/v1', cloudantMock);
+  before(async() => {
+    await td.replaceEsm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
 
-    res = mockRequire.reRequire('express/lib/response');
+    res = (await import('express/lib/response.js')).default;
     sandbox.stub(res, 'json');
     sandbox.spy(res, 'status');
 
-    namesController = mockRequire.reRequire(
-      '../../../server/controllers/names-controller',
-    );
+    const NamesController =
+    (await import('../../../server/controllers/names-controller.js')).default;
+    namesController = new NamesController();
   });
 
   afterEach(() => {
@@ -177,7 +177,7 @@ describe('Test failure paths of names controller', () => {
 
   after(() => {
     sandbox.restore();
-    mockRequire.stopAll();
+    td.reset();
   });
 
   it('should fail getting names', () => {
