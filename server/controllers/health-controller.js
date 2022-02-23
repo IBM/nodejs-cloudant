@@ -8,5 +8,4 @@ class HealthController {
   };
 }
 
-
 export default HealthController;

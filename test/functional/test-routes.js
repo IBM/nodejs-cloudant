@@ -29,7 +29,7 @@ class cloudantMock {
 let server;
 before(async() => {
   await td.replaceEsm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
-  server = await (await import('../../server/server.js')).default;
+  server = (await import('../../server/server.js')).default;
 });
 
 after(() => {
