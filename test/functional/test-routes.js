@@ -1,6 +1,6 @@
 import chai from 'chai';
 import request from 'supertest';
-import quibble from 'quibble';
+import * as td from 'testdouble';
 
 const expect = chai.expect;
 
@@ -28,12 +28,12 @@ class cloudantMock {
 
 let server;
 before(async() => {
-  await quibble.esm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
+  await td.replaceEsm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
   server = await (await import('../../server/server.js')).default;
 });
 
 after(() => {
-  quibble.reset();
+  td.reset();
 });
 
 // example functional tests of routes

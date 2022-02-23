@@ -2,7 +2,7 @@ import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
-import quibble from 'quibble';
+import * as td from 'testdouble';
 
 const expect = chai.expect;
 const sandbox = sinon.createSandbox();
@@ -63,7 +63,7 @@ describe('Test golden paths of names controller', () => {
   let namesController;
   let res;
   before(async() => {
-    await quibble.esm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
+    await td.replaceEsm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
 
     res = await (await import('express/lib/response.js')).default;
     sandbox.stub(res, 'json');
@@ -76,7 +76,7 @@ describe('Test golden paths of names controller', () => {
 
   afterEach(() => {
     sandbox.reset();
-    quibble.reset();
+    td.reset();
   });
 
   after(() => {
@@ -160,7 +160,7 @@ describe('Test failure paths of names controller', () => {
   let namesController;
   let res;
   before(async() => {
-    await quibble.esm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
+    await td.replaceEsm('@ibm-cloud/cloudant', {CloudantV1: cloudantMock});
 
     res = await (await import('express/lib/response.js')).default;
     sandbox.stub(res, 'json');
@@ -177,7 +177,7 @@ describe('Test failure paths of names controller', () => {
 
   after(() => {
     sandbox.restore();
-    quibble.reset();
+    td.reset();
   });
 
   it('should fail getting names', () => {
