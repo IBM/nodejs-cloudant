@@ -69,7 +69,7 @@ describe('Test golden paths of names controller', () => {
     sandbox.stub(res, 'json');
     sandbox.spy(res, 'status');
 
-    const NamesController = await
+    const NamesController =
     (await import('../../../server/controllers/names-controller.js')).default;
     namesController = new NamesController();
   });
