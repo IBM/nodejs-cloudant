@@ -1,23 +1,23 @@
 variable "ibmcloud_api_key" {
   type        = string
   description = "The IAM API Key for IBM Cloud access (https://cloud.ibm.com/iam/apikeys)"
-  default = "n0CZadd6128dGYCQ6KFfvg0LArP_ksiWBbOn06FzVnuy"
+  default = "######################"
 }
 
 variable "resource_group" {
   type        = string
   description = "Resource group name where the toolchain should be created (`ibmcloud resource groups`)"
-  default = "devex-playground"
+  default = "Default"
 }
 
 variable "cluster_name" {
   type        = string
   description = "Name of new Kubernetes cluster to create"
-  default = "andy-terraform-test"
+  default = "mycluster-free"
 }
 
 variable "machine_type" {
-  default     = "b3c.4x16"
+  default     = "free"
   description = "Name of machine type from `ibmcloud ks flavors --zone <ZONE>`"
 }
 variable "hardware" {
@@ -49,7 +49,7 @@ variable "public_vlan_num" {
 }
 
 variable "kube_version" {
-  default     = "1.18"
+  default     = "1.23.9"
   description = "Version of Kubernetes to apply to the new Kubernetes cluster"
 }
 
@@ -62,5 +62,5 @@ variable "cluster_namespace" {
 variable "container_registry_namespace" {
   type        = string
   description = "IBM Container Registry namespace to save image into. NOTE: If the namespace does not exist, it will be created."
-  default = "andy-test"
+  default = "arif1-test"
 }
