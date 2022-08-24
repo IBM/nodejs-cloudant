@@ -45,7 +45,7 @@
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
     "helmet": "^5.1.1",
-    "ibm-cloud-env": "^0.3.2"
+    "ibm-cloud-env": "^0.3.3"
   },
   "devDependencies": {
     "c8": "^7.12.0",
