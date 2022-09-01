@@ -49,7 +49,7 @@ variable "public_vlan_num" {
 }
 
 variable "kube_version" {
-  default     = "1.23.9"
+  default     = "1.23.10"
   description = "Version of Kubernetes to apply to the new Kubernetes cluster"
 }
 
