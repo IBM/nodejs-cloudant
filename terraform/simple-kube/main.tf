@@ -60,7 +60,7 @@ module "ibm-kubernetes-toolchain" {
   ibmcloud_api_key  = var.ibmcloud_api_key
   region            = "us-south"
   toolchain_name    = "cloudant-terraform-toolchain-node-${random_string.random.result}"
-  application_repo  = "https://github.com/triceam/nodejs-cloudant"
+  application_repo  = "https://github.com/marifse/nodejs-cloudant"
   resource_group    = var.resource_group
   cluster_name      = var.cluster_name
   cluster_namespace = var.cluster_namespace
