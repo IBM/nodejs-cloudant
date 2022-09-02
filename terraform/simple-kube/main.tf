@@ -13,11 +13,11 @@ resource "random_string" "random" {
   min_lower = 4
 }
 
-resource "time_sleep" "wait_300_seconds" {
-  depends_on = [ibm_container_cluster.cluster]
+#resource "time_sleep" "wait_300_seconds" {
+#  depends_on = [ibm_container_cluster.cluster]
 
-  create_duration = "300s"
-}
+#  create_duration = "300s"
+#}
 
 data "ibm_resource_group" "group" {
   name = var.resource_group
