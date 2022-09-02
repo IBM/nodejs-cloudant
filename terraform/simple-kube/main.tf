@@ -13,11 +13,11 @@ resource "random_string" "random" {
   min_lower = 4
 }
 
-#resource "time_sleep" "wait_600_seconds" {
-#  depends_on = [ibm_container_cluster.cluster]
+resource "time_sleep" "wait_600_seconds" {
+  depends_on = [ibm_container_cluster.cluster]
 
-#  create_duration = "600s"
-#}
+  create_duration = "600s"
+}
 
 data "ibm_resource_group" "group" {
   name = var.resource_group
@@ -65,5 +65,5 @@ module "ibm-kubernetes-toolchain" {
   cluster_name      = var.cluster_name
   cluster_namespace = var.cluster_namespace
   container_registry_namespace = var.container_registry_namespace
-  depends_on = [ibm_container_cluster.cluster]
+  depends_on = [time_sleep.wait_600_seconds]
 }
