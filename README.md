@@ -60,6 +60,27 @@ npm run start
 
 Your application will be running at `http://localhost:3000`.  You can access the `/health` endpoint at the host. You can also verify the state of your locally running application using the Selenium UI test script included in the `scripts` directory.
 
+#### Running on IBM Cloud IKS using Terraform
+
+To get started deploying this application in Kubernetes Cluster on IBM, you would need to first install the below tools on the machine from where you would run the Terraform script/code.
+
+- Install the Terraform.
+- Install the IBM Cloud CLI.
+- Install the JQ.
+
+Once the above tools have been installed, you can clone the repo and go with below commands to deploy the application:
+
+#### Native application development
+
+- Install the latest [Node.js](https://nodejs.org/en/download/) 16+ LTS version.
+
+Once the Node toolchain has been installed, you can download the project dependencies with:
+
+```bash
+npm install
+```
+
+
 #### IBM Cloud Developer Tools
 
 Install [IBM Cloud Developer Tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started) on your machine by running the following command:
