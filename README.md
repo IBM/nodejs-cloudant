@@ -70,7 +70,7 @@ To get started deploying this application in Kubernetes Cluster on IBM, you woul
 
 Once the above tools have been installed, you can clone the repo and go with below commands to deploy the application on IBM Cloud:
 
-- Go into the /nodejs-cloudant/terraform/simple-kube directory and replace the API key in variables.tf file and other variables as per your specifications.
+- Go into the /nodejs-cloudant/terraform/simple-kube directory and replace the "ibmcloud_api_key" value with your key in variables.tf file and other variables as per your specifications.
 
 - Go into the /nodejs-cloudant/terraform/simple-kube directory and initialize terraform with below command
 ```
