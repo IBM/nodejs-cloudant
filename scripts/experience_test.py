@@ -2,6 +2,7 @@ import os, time, sys, datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 date = datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")
 
