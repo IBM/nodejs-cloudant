@@ -6,12 +6,11 @@ source <(curl -sSL "${DEVX_SKIT_ASSETS_GIT_URL_RAW:-https://github.com/IBM/devex
 echo "Starting Chrome web driver..."
 source <(curl -sSL "${DEVX_SKIT_ASSETS_GIT_URL_RAW:-https://github.com/IBM/devex-skit-assets/raw/v1.2.3}/scripts/start_chrome.sh")
 
-echo "Upgrading pip"
-pip3 install --upgrade pip
+echo "Checking for pip"
 pip3 -V
 
 echo "Installing Selenium Python package..."
-pip3 install --no-cache-dir selenium
+pip3 install selenium
 
 echo "Running UI test using Selenium..."
 python3 experience_test.py
