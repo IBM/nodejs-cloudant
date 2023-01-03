@@ -53,7 +53,7 @@
     "chai-as-promised": "^7.1.1",
     "eslint": "^8.31.0",
     "eslint-config-strongloop": "^2.1.0",
-    "husky": "^8.0.2",
+    "husky": "^8.0.3",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.20",
     "sinon": "^15.0.1",
